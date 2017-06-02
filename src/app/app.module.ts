@@ -7,12 +7,13 @@ import { DashboardComponent }   from './dashboard.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroesComponent }      from './heroes.component';
 import { HeroService }          from './hero.service';
+import { MetaService }          from './meta.service';
 
 import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
   imports: [
-    BrowserModule.withServerTransition({appId: 'cli-universal-demo'}),
+    BrowserModule.withServerTransition({appId: 'my-app'}),
     FormsModule,
     AppRoutingModule
   ],
@@ -22,7 +23,7 @@ import { AppRoutingModule }     from './app-routing.module';
     HeroDetailComponent,
     HeroesComponent
   ],
-  providers: [ HeroService ],
+  providers: [ HeroService, MetaService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

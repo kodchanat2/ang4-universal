@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+import { MetaService } from './meta.service';
 
 @Component({
   selector: 'my-dashboard',
@@ -12,10 +13,12 @@ export class DashboardComponent implements OnInit {
 
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+				private metaService: MetaService) { }
 
   ngOnInit(): void {
-    this.heroService.getHeroes()
+      this.metaService.setDashboardTag();
+      this.heroService.getHeroes()
       .then(heroes => this.heroes = heroes.slice(1, 5));
   }
 }

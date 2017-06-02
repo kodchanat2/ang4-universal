@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MetaService } from './meta.service';
 
 @Component({
   selector: 'my-app',
@@ -14,4 +15,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+  constructor( private metaService: MetaService){
+    this.metaService.setDefaultTag();
+  };
 }

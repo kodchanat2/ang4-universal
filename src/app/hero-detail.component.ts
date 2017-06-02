@@ -5,6 +5,7 @@ import { Location }               from '@angular/common';
 
 import { Hero }         from './hero';
 import { HeroService }  from './hero.service';
+import { MetaService } from './meta.service';
 @Component({
   selector: 'hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -16,10 +17,12 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private heroService: HeroService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private metaService: MetaService
   ) {}
 
   ngOnInit(): void {
+    this.metaService.setDetailTag(1);
     this.route.params
       .switchMap((params: Params) => this.heroService.getHero(+params['id']))
       .subscribe(hero => this.hero = hero);
